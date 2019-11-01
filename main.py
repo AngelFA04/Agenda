@@ -1,6 +1,7 @@
 
 import functions as fun
 
+#Funcin para seleccionar una opcion del menu
 def elegirOpcion():
   opcion = fun.printMenu()
   
