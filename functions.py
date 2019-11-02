@@ -1,7 +1,10 @@
 from main import elegirOpcion
+import persistence as p
 import csv
 
 NAMES = dict()
+
+
 
 def reestructureData(name):
     print(NAMES[name])
@@ -12,8 +15,8 @@ def reestructureData(name):
         structure['email'] = NAMES.get(name)[1]
     return structure
 
+#Imprimir la informacion del usuario basado en el nombre
 def printPersonalInfo(name):
-
   pass
 
 
@@ -74,6 +77,7 @@ def searchByName(name):
 
 def readContacts():
   pass
+
 
 def names():
   return NAMES

@@ -1,7 +1,7 @@
-
+import persistence
 import functions as fun
 
-#Funcin para seleccionar una opcion del menu
+#Función para seleccionar una opcion del menu
 def elegirOpcion():
   opcion = fun.printMenu()
   
@@ -14,13 +14,19 @@ def elegirOpcion():
   elif opcion == 3:
     name = input("Introduce el nombre de la persona: ")
     fun.deletePerson(name)
-
-
-
-
+  elif opcion == 4:
+    name = input("Introduce el nombre de la persona: ")
+    fun.searchByName()
+  elif opcion == 5:
+    fun.readContacts()
+  elif opcion == 6:
+    persistence.writeDictionary(nameFile)
 
 
 if __name__ == "__main__":
+  nameFile = str(input("Nombre para base de datos: ")) + ".csv"
+  persistence.initCSV(nameFile)
+  
   print("Este es un programa para almacenar una agenda,\nseleccione una de las siguientes opciones:\n")
   fun.addPerson(input("Introduce el nombre de la persona: "))
   print(fun.reestructureData("Angel"))
