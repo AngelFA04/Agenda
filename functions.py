@@ -2,6 +2,16 @@ from main import elegirOpcion
 import csv
 
 NAMES = dict()
+
+def reestructureData(name):
+    print(NAMES[name])
+    structure = {"name":"", "phone":"", "email":""} 
+    if name in NAMES.keys():
+        structure['name'] = name
+        structure['phone'] = NAMES.get(name)[0]
+        structure['email'] = NAMES.get(name)[1]
+    return structure
+
 def printPersonalInfo(name):
 
   pass

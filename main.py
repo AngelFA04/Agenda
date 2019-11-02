@@ -23,7 +23,6 @@ def elegirOpcion():
 if __name__ == "__main__":
   print("Este es un programa para almacenar una agenda,\nseleccione una de las siguientes opciones:\n")
   fun.addPerson(input("Introduce el nombre de la persona: "))
-  fun.addPerson(input("Introduce el nombre d  e la persona: "))
-
+  print(fun.reestructureData("Angel"))
   elegirOpcion()
   print(fun.names())
