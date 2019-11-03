@@ -8,17 +8,18 @@ NAMES = dict()
 
 def reestructureData(name):
     print(NAMES[name])
-    structure = {"name":"", "phone":"", "email":""} 
+    structure = {"name":"", "phone_number":"", "email":""} 
     if name in NAMES.keys():
         structure['name'] = name
-        structure['phone'] = NAMES.get(name)[0]
+        structure['phone_number'] = NAMES.get(name)[0]
         structure['email'] = NAMES.get(name)[1]
     return structure
 
 #Imprimir la informacion del usuario basado en el nombre
 def printPersonalInfo(name):
-  pass
-
+  info = reestructureData(name)
+  cadena = f"Nombre: {info['name']}  Número: {info['phone_number']} Email: {info['email']}"
+  return cadena
 
 def printMenu():
   print("1. Agregar persona")
