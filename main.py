@@ -4,7 +4,16 @@ import functions as fun
 #Función para seleccionar una opcion del menu
 def elegirOpcion():
   opcion = fun.printMenu()
-  
+  def finish():
+    yn = input("¿Desea guardar los cambios? y/n: ")
+    if yn.lower() == 'y':
+      #Guardar archivo de base de datos
+      pass
+    elif yn.lower() == 'n':
+      pass
+    else:
+      finish()
+      
   if opcion == 1:
     name = input("Introduce el nombre de la persona: ")
     fun.addPerson(name)
@@ -23,7 +32,16 @@ def elegirOpcion():
     persistence.writeDictionary(str(nameFile+".bk"), fun.names())
   elif opcion == 7:
     yn = input("¿Desea guardar los cambios? y/n: ")
+    if yn.lower() == 'y':
+      #Guardar archivo de base de datos
+      pass
+    elif yn.lower() == 'n':
+      pass
+    else:
+      finish()
     return True
+  elif opcion == 9:
+    fun.readContacts()
   return False
     
 if __name__ == "__main__":
@@ -31,11 +49,7 @@ if __name__ == "__main__":
   persistence.initCSV(nameFile)
   
   print("Este es un programa para almacenar una agenda,\nseleccione una de las siguientes opciones:\n")
-  fun.addPerson(input("Introduce el nombre de la persona: "))
-  fun.addPerson(input("Introduce el nombre de la persona: "))
-  elegirOpcion()
-  print(fun.printPersonalInfo('Angel'))
-  print(fun.names())
+  
   while not elegirOpcion():
     elegirOpcion()
   

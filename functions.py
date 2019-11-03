@@ -7,7 +7,6 @@ NAMES = dict()
 
 
 def reestructureData(name):
-    print(NAMES[name])
     structure = {"name":"", "phone_number":"", "email":""} 
     if name in NAMES.keys():
         structure['name'] = name
@@ -18,7 +17,8 @@ def reestructureData(name):
 #Imprimir la informacion del usuario basado en el nombre
 def printPersonalInfo(name):
   info = reestructureData(name)
-  cadena = f"Nombre: {info['name']}  Número: {info['phone_number']} Email: {info['email']}"
+  #cadena = f"Nombre: {info['name']}  Número: {info['phone_number']} Email: {info['email']}"
+  cadena = f"{info['name']}  {info['phone_number']}  {info['email']}"
   return cadena
 
 def printMenu():
@@ -26,12 +26,13 @@ def printMenu():
   print("2. Modificar persona")
   print("3. Borrar persona")
   print("4. Buscar por nombre e imprimir información")
-  print("5. Leer agenda")
+  print("5. Leer agenda desde archivo")
+  print("9 - Leer agenda")
   print("6. Guardar agenda en archivo")
   print("7. Salir")
   try:
     opcion = int(input("Introduce una opción: "))
-    if opcion >= 1 and opcion <= 7:
+    if opcion >= 1 and opcion <= 9:
       return opcion
     else:
       raise OptionOutofRange
@@ -77,7 +78,9 @@ def searchByName(name):
     print("La persona que busca no se encuentra en la base de datos")
 
 def readContacts():
-  pass
+  print("\n" + "-"*49 +"\n| Nombre \t | Telefono \t | Correo\n" +"-"*49)
+  for name in NAMES.keys():
+    print(printPersonalInfo(name))
 
 
 def names():
