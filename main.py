@@ -8,9 +8,9 @@ def elegirOpcion():
     yn = input("¿Desea guardar los cambios? y/n: ")
     if yn.lower() == 'y':
       #Guardar archivo de base de datos
-      pass
+      persistence.writeDictionary(str(nameFile), fun.names())
     elif yn.lower() == 'n':
-      pass
+      return
     else:
       finish()
       
@@ -29,14 +29,14 @@ def elegirOpcion():
   elif opcion == 5:
     fun.readContacts()
   elif opcion == 6:
-    persistence.writeDictionary(str(nameFile+".bk"), fun.names())
+    persistence.writeDictionary(str(nameFile), fun.names())
   elif opcion == 7:
     yn = input("¿Desea guardar los cambios? y/n: ")
     if yn.lower() == 'y':
       #Guardar archivo de base de datos
-      pass
+      persistence.writeDictionary(str(nameFile), fun.names())
     elif yn.lower() == 'n':
-      pass
+      close()
     else:
       finish()
     return True
