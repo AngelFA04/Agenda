@@ -12,15 +12,6 @@ def initCSV(nameFile):
       writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
       writer.writeheader()
 
-def writeDictionary(nameFile, NAMES):
-    with open(nameFile, mode='a') as csv_file:
-        fieldnames = ['name', 'phone_number', 'email']
-        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-        for person in NAMES.keys():
-           p = fun.reestructureData(person)
-           writer.writerow(p)
-    print("La agenda se ha guardado")
-
 def saveFile(nameFile,NAMES):
     with open(nameFile, mode='w') as csv_file:
         fieldnames = ['name', 'phone_number', 'email']
@@ -29,7 +20,7 @@ def saveFile(nameFile,NAMES):
         for person in NAMES.keys():
            p = fun.reestructureData(person)
            writer.writerow(p) 
-    
+    print("La agenda se ha guardado")
 #Lee la agenda que se ha guardado en los archivos
 def readContactsfile(nameFile):
   print("El nombre del archivo a leer es: "+ nameFile)
