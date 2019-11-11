@@ -19,18 +19,31 @@ def writeDictionary(nameFile, NAMES):
         for person in NAMES.keys():
            p = fun.reestructureData(person)
            writer.writerow(p)
-        
-def extractData(nameFile):
-    with open('employee_birthday.txt', mode='r') as csv_file:
-      csv_reader = csv.DictReader(csv_file)
-      line_count = 0
-      for row in csv_reader:
-          if line_count == 0:
-              print(f'Column names are {", ".join(row)}')
-              line_count += 1
-              print(f'\t{row["name"]} works in the {row["department"]} department, and was born in {row["birthday month"]}.')
-              line_count += 1
-              print(f'Processed {line_count} lines.')
-    pass
+
+def saveFile(nameFile,NAMES):
+    with open(nameFile, mode='w') as csv_file:
+        fieldnames = ['name', 'phone_number', 'email']
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        writer.writeheader()
+        for person in NAMES.keys():
+           p = fun.reestructureData(person)
+           writer.writerow(p) 
+    
+#Lee la agenda que se ha guardado en los archivos
+def readContactsfile(nameFile):
+  with open(nameFile) as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    line_count = 0
+    for row in csv_reader:
+        if line_count == 0:
+            pass
+        else:
+            print(row)
+            datos = f"{row[0]}  {row[1]}  {row[2]}"+"\n+"+"-"*49
+            print(datos)
+            line_count += 1
+    print(f'Processed {line_count} lines.')
+
+
         
 

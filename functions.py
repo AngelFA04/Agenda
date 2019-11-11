@@ -18,7 +18,7 @@ def reestructureData(name):
 def printPersonalInfo(name):
   info = reestructureData(name)
   #cadena = f"Nombre: {info['name']}  Número: {info['phone_number']} Email: {info['email']}"
-  cadena = f"{info['name']}  {info['phone_number']}  {info['email']}"
+  cadena = f"{info['name']}  {info['phone_number']}  {info['email']}"+"\n+"+"-"*49
   return cadena
 
 def printMenu():
@@ -27,9 +27,10 @@ def printMenu():
   print("3. Borrar persona")
   print("4. Buscar por nombre e imprimir información")
   print("5. Leer agenda desde archivo")
-  print("9 - Leer agenda")
+  
   print("6. Guardar agenda en archivo")
   print("7. Salir")
+  print("8 - Leer agenda actual")
   try:
     opcion = int(input("Introduce una opción: "))
     if opcion >= 1 and opcion <= 9:

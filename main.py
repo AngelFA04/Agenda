@@ -1,5 +1,6 @@
 import persistence
 import functions as fun
+import sys
 
 #Función para seleccionar una opcion del menu
 def elegirOpcion():
@@ -8,9 +9,10 @@ def elegirOpcion():
     yn = input("¿Desea guardar los cambios? y/n: ")
     if yn.lower() == 'y':
       #Guardar archivo de base de datos
-      persistence.writeDictionary(str(nameFile), fun.names())
+      persistence.saveFile(str(nameFile), fun.names())
+      sys.exit()
     elif yn.lower() == 'n':
-      return
+      sys.exit()
     else:
       finish()
       
@@ -25,22 +27,23 @@ def elegirOpcion():
     fun.deletePerson(name)
   elif opcion == 4:
     name = input("Introduce el nombre de la persona: ")
-    fun.searchByName()
+    fun.searchByName(name)
   elif opcion == 5:
-    fun.readContacts()
+    persistence.readContactsfile(nameFile)
   elif opcion == 6:
     persistence.writeDictionary(str(nameFile), fun.names())
   elif opcion == 7:
     yn = input("¿Desea guardar los cambios? y/n: ")
     if yn.lower() == 'y':
       #Guardar archivo de base de datos
-      persistence.writeDictionary(str(nameFile), fun.names())
+      persistence.saveFile(str(nameFile), fun.names())
+      sys.exit()
     elif yn.lower() == 'n':
-      close()
+      sys.exit()
     else:
       finish()
     return True
-  elif opcion == 9:
+  elif opcion == 8:
     fun.readContacts()
   return False
     
