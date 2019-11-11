@@ -1,9 +1,16 @@
 from main import elegirOpcion
 import persistence as p
 import csv
-
+import re
 NAMES = dict()
 
+def validateEmail(email):
+  m = re.match("[\w\.-]+@.+\.[a-zA-Z]{2,5}",email)
+  if(m):
+    return True
+  else:
+    print("Email NO valido")
+    return validateEmail(str(input(f"Introducir email valido: ")))
 
 
 def reestructureData(name):
@@ -50,6 +57,8 @@ def addPerson(name):
 
   #Introducir correo
   email = str(input(f"Introducir email de {name}: "))
+  validateEmail(email)
+  
   NAMES[name].append(email)
   print('-'*7+f'\n{name} ha sido agregado a la base de datos\n'+'-'*7)
 
@@ -57,6 +66,8 @@ def modifyPerson(name):
   if name in NAMES.keys():  
     new_phone = input("Ingresar nuevo número telefonico: ")
     new_email = input("Ingresar nuevo email: ")
+    validateEmail(new_email)
+    
     NAMES[name][0] = new_phone
     NAMES[name][1] = new_email
     print(f"Los datos de {name} han sido modificados")
@@ -64,8 +75,6 @@ def modifyPerson(name):
     print("\nERROR, la persona no existe\n")
     elegirOpcion()
   
-
-
 def deletePerson(name):
   if name in NAMES.keys():  
     del NAMES[name]
@@ -84,7 +93,6 @@ def readContacts():
   print("\n" + "-"*49 +"\n| Nombre \t | Telefono \t | Correo\n" +"-"*49)
   for name in NAMES.keys():
     print(printPersonalInfo(name))
-
 
 def names():
   return NAMES
