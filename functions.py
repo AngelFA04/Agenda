@@ -59,9 +59,11 @@ def modifyPerson(name):
     new_email = input("Ingresar nuevo email: ")
     NAMES[name][0] = new_phone
     NAMES[name][1] = new_email
+    print(f"Los datos de {name} han sido modificados")
   else:
     print("\nERROR, la persona no existe\n")
     elegirOpcion()
+  
 
 
 def deletePerson(name):

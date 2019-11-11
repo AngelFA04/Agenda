@@ -31,7 +31,7 @@ def elegirOpcion():
   elif opcion == 5:
     persistence.readContactsfile(nameFile)
   elif opcion == 6:
-    persistence.writeDictionary(str(nameFile), fun.names())
+    persistence.saveFile(str(nameFile), fun.names())
   elif opcion == 7:
     yn = input("¿Desea guardar los cambios? y/n: ")
     if yn.lower() == 'y':
